@@ -1,0 +1,15 @@
+.generate-btn{
+    border-radius: 50%;
+    border: 8px solid #39458C;
+    width:18rem;
+
+}
+.button{
+    cursor: pointer;
+}
+.notify{
+    display:none;
+}
+.try{
+    display:none;
+}
