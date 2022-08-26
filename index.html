@@ -6,14 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
 
 <body class="bg-indigo-900">
     <div class="container bg-indigo-900 grid grid-cols-2 gap-10 m-auto my-10 ">
-        <div class="generator bg-indigo-700 grid grid-rows-3 place-items-center ">
+        <div class="generator bg-indigo-700 grid grid-rows-3 place-items-center max-h-[45rem]">
             <div>
                 <input id="displayPin"
                     class="form-control bg-indigo-900 w-96 h-16 rounded-lg text-white text-3xl text-center" type="text">
@@ -24,11 +23,12 @@
                 </button>
             </div>
         </div>
-        <div class="pinbox bg-indigo-700 grid grid-rows-3 place-items-center ">
-            <div>
-                <input id="typedKey" class="generate-pin bg-indigo-900 w-96 h-16 rounded-lg text-white text-3xl text-center" type="text">
+        <div class="pinbox bg-indigo-700 grid grid-rows-3 place-items-center max-h-[45rem]">
+            <div class="max-h-[5rem]">
+                <input id="typedKey"
+                    class="generate-pin bg-indigo-900 w-96 h-16 rounded-lg text-white text-3xl text-center" type="text">
             </div>
-            <div id="keyPad" class="grid grid-rows-4 gap-2 place-items-center mt-12">
+            <div id="keyPad" class="grid grid-rows-4 gap-2 place-items-center mt-12 max-h-[25rem]">
                 <div class="grid grid-cols-3 gap-2">
                     <div class="button bg-indigo-900 px-10 py-6 text-4xl text-white border-solid rounded-lg">7</div>
                     <div class="button bg-indigo-900 px-10 py-6 text-4xl text-white border-solid rounded-lg">8</div>
@@ -51,41 +51,22 @@
                 </div>
 
             </div>
-            <div>
-                <button onclick="verifyPin()" type="submit" class="bg-indigo-500 text-white w-64 mt-6 rounded-lg py-4 text-3xl">Submit</button>
+            <div class="max-h-[1rem]">
+                <button onclick="verifyPin()" type="submit"
+                    class="bg-indigo-500 text-white w-64 mt-6 rounded-lg py-4 text-3xl">Submit</button>
             </div>
-            <div id="tryLeft" class="try text-red-600 text-4xl mb-16">
+            <div id="tryLeft" class="try text-red-600 text-2xl mb-16">
                 <span id="updateSpan">4 </span> try left
             </div>
         </div>
-       
+
     </div>
-    <div class="notify-section text-center text-6xl text-white">
+    <div class="notify-section text-center text-3xl text-white">
         <p id="notifyFail" class="notify"><span class="text-red-600">X </span>pin didn't match. Try again. </p><br>
         <p id="notifySuccess" class="notify">pin matched. Secret door is opening for you. </p>
     </div>
-    <script>
-        const keyPad = document.getElementById("keyPad");
-        keyPad.addEventListener("click",
-            function (event) {
-                const number = event.target.innerText;
-                const typedNumber = document.getElementById("typedKey");
-                if(isNaN(number)){
-                    if(number=='C'){
-                        typedNumber.value= '';
-                    }
-                    if(number=='<'){
-                        typedNumber.value= typedNumber.value-1;
-                    }
-                }
-                else{
-                const previousNumber = typedNumber.value;
-                const newNumber = typedNumber.value + number;
-                typedNumber.value = newNumber;
-                }
-            })
-        
-    </script>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

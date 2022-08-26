@@ -42,4 +42,29 @@ function verifyPin(){
         }
 
     }
+    const keyPad = document.getElementById("keyPad");
+        keyPad.addEventListener("click",
+            function (event) {
+                const number = event.target.innerText;
+                console.log("number",number);
+                var typedNumber = document.getElementById("typedKey");
+                if(isNaN(number)){
+                    if(number=='C'){
+                        typedNumber.value= '';
+                    }
+                    if(number=='<'){
+                        var typedStr = typedNumber.value.toString();
+                        console.log("typedStr",typedStr);
+                        const newTypedNumber = typedStr.slice(0, -1);
+                        console.log(newTypedNumber);
+                        typedNumber.value = newTypedNumber;
+                    }
+                }
+                else{
+                const previousNumber = typedNumber.value;
+                const newNumber = typedNumber.value + number;
+                typedNumber.value = newNumber;
+                }
+            })
+        
 
